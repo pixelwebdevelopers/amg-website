@@ -12,18 +12,18 @@ export function WhatsAppButton() {
   return (
     <div
       aria-label="WhatsApp quick contact options"
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-2.5 font-sans pointer-events-auto"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[999] flex flex-col items-end font-sans pointer-events-auto select-none"
       style={{
         position: "fixed",
-        bottom: "max(1rem, env(safe-area-inset-bottom, 1rem))",
-        right: "max(1rem, env(safe-area-inset-right, 1rem))",
-        zIndex: 9999,
+        bottom: "calc(20px + env(safe-area-inset-bottom, 0px))",
+        right: "calc(20px + env(safe-area-inset-right, 0px))",
+        zIndex: 999,
       }}
     >
       {/* Quick Menu Popover */}
       {isOpen && (
         <div
-          className="animate-in fade-in slide-in-from-bottom-2 duration-200 w-[calc(100vw-2rem)] max-w-72 rounded-xl bg-ink/95 backdrop-blur-md p-4 text-ink-foreground shadow-2xl border border-ink-line ring-1 ring-white/10 mb-1"
+          className="animate-in fade-in slide-in-from-bottom-2 duration-200 w-[calc(100vw-2.5rem)] max-w-72 rounded-xl bg-ink/95 backdrop-blur-md p-4 text-ink-foreground shadow-2xl border border-ink-line ring-1 ring-white/10 mb-3"
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >
@@ -97,26 +97,29 @@ export function WhatsAppButton() {
         </div>
       )}
 
-      {/* Floating Action Button */}
-      <div className="group relative flex items-center">
+      {/* Floating Action Button with Expanding Live Waves */}
+      <div className="group relative flex items-center justify-center">
+        {/* Live Concentric Expanding Waves */}
+        <span className="pointer-events-none absolute h-14 w-14 rounded-full bg-red-600/35 border border-red-500/40 whatsapp-wave-1" />
+        <span className="pointer-events-none absolute h-14 w-14 rounded-full bg-red-600/25 border border-red-500/30 whatsapp-wave-2" />
+        <span className="pointer-events-none absolute h-14 w-14 rounded-full bg-red-600/15 border border-red-500/20 whatsapp-wave-3" />
+
         {/* Tooltip on desktop hover */}
         <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-ink px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-xl ring-1 ring-white/10 md:group-hover:inline-block">
           WhatsApp Us <span className="text-red-400">• {companyContact.phoneDisplay}</span>
         </span>
 
-        {/* Pulse Effect Rings */}
-        <span className="absolute -inset-1 rounded-full bg-red-600/40 blur-sm animate-pulse" />
-
+        {/* Main Solid Circular Red Button */}
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
           onMouseEnter={() => setIsOpen(true)}
-          className="relative flex h-13 w-13 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#dc2626] text-white shadow-[0_6px_20px_rgba(220,38,38,0.55)] transition-all duration-300 hover:scale-110 hover:bg-[#b91c1c] active:scale-95 focus:outline-none focus:ring-4 focus:ring-red-400/50 cursor-pointer"
+          className="relative z-10 flex h-14 w-14 sm:h-15 sm:w-15 items-center justify-center rounded-full bg-[#dc2626] text-white shadow-[0_8px_25px_rgba(220,38,38,0.6)] transition-all duration-300 hover:scale-105 hover:bg-[#b91c1c] active:scale-95 focus:outline-none focus:ring-4 focus:ring-red-400/50 cursor-pointer"
           aria-label="Open WhatsApp contact options"
           aria-expanded={isOpen}
         >
           <svg
-            className="h-6 w-6 sm:h-7 sm:w-7 fill-white drop-shadow"
+            className="h-7 w-7 fill-white drop-shadow-md"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
