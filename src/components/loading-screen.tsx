@@ -48,7 +48,7 @@ export function LoadingScreen() {
     // Fallback maximum safety timer (e.g. 5.5 seconds)
     const safetyTimer = setTimeout(() => {
       handleFinish();
-    }, 5500);
+    }, 6500);
 
     return () => clearTimeout(safetyTimer);
   }, [handleFinish]);
