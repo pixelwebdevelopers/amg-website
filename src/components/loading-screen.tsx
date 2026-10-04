@@ -5,9 +5,9 @@ import mobileVideo from "@/assets/mobile.mp4";
 export function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const desktopVideoRef = useRef<HTMLVideoElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
-  const mobileTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleFinish = useCallback(() => {
     setIsFadingOut((fading) => {
@@ -20,14 +20,26 @@ export function LoadingScreen() {
     });
   }, []);
 
-  const handleMobileFinish = useCallback(() => {
-    if (mobileTimeoutRef.current) {
-      clearTimeout(mobileTimeoutRef.current);
-    }
-    mobileTimeoutRef.current = setTimeout(() => {
+  const handleVideoEnded = useCallback(() => {
+    if (isMobile) {
+      // Mobile: hold the final frame for 1 second more before fading out
+      timeoutRef.current = setTimeout(() => {
+        handleFinish();
+      }, 1000);
+    } else {
+      // Desktop: finish immediately
       handleFinish();
-    }, 1000);
-  }, [handleFinish]);
+    }
+  }, [isMobile, handleFinish]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     // Lock background scrolling while loading screen is active
@@ -38,38 +50,35 @@ export function LoadingScreen() {
     }
     return () => {
       document.body.style.overflow = "";
-      if (mobileTimeoutRef.current) {
-        clearTimeout(mobileTimeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       }
     };
   }, [isVisible]);
 
   useEffect(() => {
-    // Attempt play on mount
-    const tryPlay = (video: HTMLVideoElement | null) => {
-      if (video) {
-        video.muted = true;
-        video.play().catch(() => {
-          // If browser policy blocks autoplay, fallback smoothly
-        });
-      }
-    };
+    if (isMobile === null) return;
 
-    tryPlay(desktopVideoRef.current);
-    tryPlay(mobileVideoRef.current);
+    // Attempt autoplay
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // Autoplay policy fallback
+      });
+    }
 
-    // Fallback maximum safety timer (e.g. 7.5 seconds)
+    // Fallback maximum safety timer (10s)
     const safetyTimer = setTimeout(() => {
       handleFinish();
-    }, 7500);
+    }, 10000);
 
     return () => {
       clearTimeout(safetyTimer);
-      if (mobileTimeoutRef.current) {
-        clearTimeout(mobileTimeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       }
     };
-  }, [handleFinish]);
+  }, [isMobile, handleFinish]);
 
   if (!isVisible) return null;
 
@@ -81,37 +90,27 @@ export function LoadingScreen() {
       }`}
       style={{ backgroundColor: "#f8f9fa" }}
     >
-      {/* Desktop Video (Screen md and above) - Fills all width edge-to-edge (object-cover) */}
-      <div className="hidden md:flex items-center justify-center w-full h-full overflow-hidden bg-[#f8f9fa]">
-        <video
-          ref={desktopVideoRef}
-          src={desktopVideo}
-          autoPlay
-          muted
-          playsInline
-          preload="auto"
-          onEnded={handleFinish}
-          onError={handleFinish}
-          className="w-full h-full min-w-full min-h-full object-cover bg-[#f8f9fa]"
-          style={{ backgroundColor: "#f8f9fa" }}
-        />
-      </div>
-
-      {/* Mobile Video (Screen below md) - Centered, 100% width, uncropped with grey-white space above/below */}
-      <div className="flex md:hidden items-center justify-center w-full h-full p-0 bg-[#f8f9fa] overflow-hidden">
-        <video
-          ref={mobileVideoRef}
-          src={mobileVideo}
-          autoPlay
-          muted
-          playsInline
-          preload="auto"
-          onEnded={handleMobileFinish}
-          onError={handleFinish}
-          className="w-full h-auto max-h-screen object-contain bg-[#f8f9fa]"
-          style={{ backgroundColor: "#f8f9fa" }}
-        />
-      </div>
+      {isMobile !== null && (
+        <div className="flex items-center justify-center w-full h-full p-0 bg-[#f8f9fa] overflow-hidden">
+          <video
+            ref={videoRef}
+            key={isMobile ? "mobile-video" : "desktop-video"}
+            src={isMobile ? mobileVideo : desktopVideo}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onEnded={handleVideoEnded}
+            onError={handleFinish}
+            className={
+              isMobile
+                ? "w-full h-auto max-h-screen object-contain bg-[#f8f9fa]"
+                : "w-full h-full min-w-full min-h-full object-cover bg-[#f8f9fa]"
+            }
+            style={{ backgroundColor: "#f8f9fa" }}
+          />
+        </div>
+      )}
 
       {/* Skip Button */}
       <button
