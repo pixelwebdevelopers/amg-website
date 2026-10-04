@@ -7,6 +7,7 @@ export function LoadingScreen() {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleFinish = useCallback(() => {
     setIsFadingOut((fading) => {
@@ -19,6 +20,15 @@ export function LoadingScreen() {
     });
   }, []);
 
+  const handleMobileFinish = useCallback(() => {
+    if (mobileTimeoutRef.current) {
+      clearTimeout(mobileTimeoutRef.current);
+    }
+    mobileTimeoutRef.current = setTimeout(() => {
+      handleFinish();
+    }, 1000);
+  }, [handleFinish]);
+
   useEffect(() => {
     // Lock background scrolling while loading screen is active
     if (isVisible) {
@@ -28,6 +38,9 @@ export function LoadingScreen() {
     }
     return () => {
       document.body.style.overflow = "";
+      if (mobileTimeoutRef.current) {
+        clearTimeout(mobileTimeoutRef.current);
+      }
     };
   }, [isVisible]);
 
@@ -45,12 +58,17 @@ export function LoadingScreen() {
     tryPlay(desktopVideoRef.current);
     tryPlay(mobileVideoRef.current);
 
-    // Fallback maximum safety timer (e.g. 5.5 seconds)
+    // Fallback maximum safety timer (e.g. 7.5 seconds)
     const safetyTimer = setTimeout(() => {
       handleFinish();
-    }, 6500);
+    }, 7500);
 
-    return () => clearTimeout(safetyTimer);
+    return () => {
+      clearTimeout(safetyTimer);
+      if (mobileTimeoutRef.current) {
+        clearTimeout(mobileTimeoutRef.current);
+      }
+    };
   }, [handleFinish]);
 
   if (!isVisible) return null;
@@ -88,7 +106,7 @@ export function LoadingScreen() {
           muted
           playsInline
           preload="auto"
-          onEnded={handleFinish}
+          onEnded={handleMobileFinish}
           onError={handleFinish}
           className="w-full h-auto max-h-screen object-contain bg-[#f8f9fa]"
           style={{ backgroundColor: "#f8f9fa" }}
