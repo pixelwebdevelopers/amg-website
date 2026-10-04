@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, CheckCircle2, PackageCheck, Layers, FileSpreadsheet, Phone } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  PackageCheck,
+  Layers,
+  FileSpreadsheet,
+  Phone,
+} from "lucide-react";
 import { useState } from "react";
 import { ContactBand, PageIntro, SectionTitle } from "@/components/page-sections";
 import { Button } from "@/components/ui/button";
@@ -75,9 +83,7 @@ function ProductsPage() {
                   </div>
 
                   <div className="p-7">
-                    <span className="eyebrow text-muted-foreground">
-                      {product.category}
-                    </span>
+                    <span className="eyebrow text-muted-foreground">{product.category}</span>
                     <h2 className="mt-1 font-display text-3xl font-extrabold uppercase text-foreground group-hover:text-brand transition-colors">
                       {product.name}
                     </h2>
@@ -90,7 +96,10 @@ function ProductsPage() {
                         Key Capabilities:
                       </p>
                       {product.specs.map((spec, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 text-xs text-muted-foreground"
+                        >
                           <CheckCircle2 className="size-3.5 text-brand shrink-0" />
                           <span>{spec}</span>
                         </div>
@@ -141,9 +150,7 @@ function ProductsPage() {
                   <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                    {item.text}
-                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-ink-muted">{item.text}</p>
 
                   <div className="mt-6 space-y-2">
                     {item.items.map((subItem) => (
@@ -166,7 +173,8 @@ function ProductsPage() {
 
           <div className="mt-12 border border-ink-line bg-ink-line/30 p-6 md:p-8 text-center max-w-3xl mx-auto">
             <p className="text-base text-white font-medium">
-              If a product or material is required for a commercial, industrial or project-based order, our team can work to explore suitable sourcing and supply solutions.
+              If a product or material is required for a commercial, industrial or project-based
+              order, our team can work to explore suitable sourcing and supply solutions.
             </p>
           </div>
         </div>
@@ -181,7 +189,9 @@ function ProductsPage() {
               Have a Specific Material or Bulk Supply Requirement?
             </h2>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              Share your requirement with us and our team will work towards a suitable sourcing and supply solution. We provide transparent specifications, scheduled shipments, and dedicated customer support.
+              Share your requirement with us and our team will work towards a suitable sourcing and
+              supply solution. We provide transparent specifications, scheduled shipments, and
+              dedicated customer support.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-4">

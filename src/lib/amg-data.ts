@@ -35,6 +35,7 @@ export const companyContact = {
   socials: {
     instagram: "https://www.instagram.com/abidmunirgroup?stkn=MW93OGwwOGViNXVpZw==",
     facebook: "https://www.facebook.com/share/18EaTJYfck/",
+    whatsapp: "https://api.whatsapp.com/qr/M3YDU6GKR4XSC1?autoload=1&app_absent=0",
     whatsappQr: "https://api.whatsapp.com/qr/M3YDU6GKR4XSC1?autoload=1&app_absent=0",
   },
   tagline: "Honouring a legacy. Building a vision. Shaping the future.",
@@ -45,35 +46,40 @@ export const businessActivities = [
   {
     number: "01",
     title: "MANUFACTURING",
-    shortText: "We are engaged in manufacturing activities with a focus on quality, efficiency and customer requirements.",
+    shortText:
+      "We are engaged in manufacturing activities with a focus on quality, efficiency and customer requirements.",
     text: "We undertake manufacturing activities with a focus on quality, efficiency and customer requirements, aiming to deliver dependable products and solutions for diverse business needs.",
     image: processing,
   },
   {
     number: "02",
     title: "PROCESSING",
-    shortText: "Our processing operations focus on delivering products that meet required quality and industry standards.",
+    shortText:
+      "Our processing operations focus on delivering products that meet required quality and industry standards.",
     text: "Our processing capabilities are focused on preparing and handling products efficiently while maintaining consistency and meeting the requirements of our customers and markets.",
     image: saltMining,
   },
   {
     number: "03",
     title: "GENERAL ORDER SUPPLY",
-    shortText: "Our core strength lies in General Order Supply. We can arrange and supply a wide range of products and materials according to customer and project requirements.",
+    shortText:
+      "Our core strength lies in General Order Supply. We can arrange and supply a wide range of products and materials according to customer and project requirements.",
     text: "General Order Supply is one of our core business strengths. We can facilitate the sourcing and supply of a wide range of products and materials according to customer, commercial and project requirements. Our core supply portfolio includes Coal, Salt, Silica Sand, Bauxite, Stone Dust, Gypsum and Copper Ore, while our general-order capability extends beyond minerals to other products and materials as required.",
     image: generalSupply,
   },
   {
     number: "04",
     title: "TRADING",
-    shortText: "We facilitate reliable trading solutions by connecting products, suppliers and customers across different markets.",
+    shortText:
+      "We facilitate reliable trading solutions by connecting products, suppliers and customers across different markets.",
     text: "We facilitate trading opportunities across diverse product categories by connecting reliable sources with customer requirements and developing mutually beneficial business relationships.",
     image: mineralMining,
   },
   {
     number: "05",
     title: "LOGISTICS",
-    shortText: "We support the movement and delivery of products through dependable logistics and supply chain solutions.",
+    shortText:
+      "We support the movement and delivery of products through dependable logistics and supply chain solutions.",
     text: "We support the movement and coordination of goods through reliable logistics and supply arrangements, helping ensure efficient delivery from source to destination across Pakistan.",
     image: logistics,
   },
@@ -89,8 +95,14 @@ export const coreProducts = [
     badge: "Own Coal Mining Operations",
     image: coal,
     summary: "High quality coal for industrial, commercial and brick kiln operations.",
-    detail: "We extract coal from our own coal mining operations and maintaining supply capabilities through reliable sourcing networks. We provide quality coal for industrial and commercial requirements, with a focus on consistency, reliability and customer-specific needs.",
-    specs: ["Direct extraction from owned coal mines", "High calorific value & optimal grading", "Bulk fleet delivery across Pakistan", "Consistent industrial supply contracts"],
+    detail:
+      "We extract coal from our own coal mining operations and maintaining supply capabilities through reliable sourcing networks. We provide quality coal for industrial and commercial requirements, with a focus on consistency, reliability and customer-specific needs.",
+    specs: [
+      "Direct extraction from owned coal mines",
+      "High calorific value & optimal grading",
+      "Bulk fleet delivery across Pakistan",
+      "Consistent industrial supply contracts",
+    ],
   },
   {
     id: "salt",
@@ -99,8 +111,14 @@ export const coreProducts = [
     badge: "Own Salt Mining Operations",
     image: saltMining,
     summary: "Pure Himalayan rock salt and industrial grade processed salt.",
-    detail: "With our own salt mining operations and processing capabilities, we are able to extract, process and supply quality salt products according to customer requirements. From raw salt sourcing to processing and final supply, we focus on quality, consistency and reliable delivery for industrial and commercial needs.",
-    specs: ["Raw rock salt & fine refined grades", "Industrial, chemical & de-icing grades", "Custom particle sizing & packaging", "Export and domestic bulk fulfillment"],
+    detail:
+      "With our own salt mining operations and processing capabilities, we are able to extract, process and supply quality salt products according to customer requirements. From raw salt sourcing to processing and final supply, we focus on quality, consistency and reliable delivery for industrial and commercial needs.",
+    specs: [
+      "Raw rock salt & fine refined grades",
+      "Industrial, chemical & de-icing grades",
+      "Custom particle sizing & packaging",
+      "Export and domestic bulk fulfillment",
+    ],
   },
   {
     id: "silica-sand",
@@ -109,8 +127,14 @@ export const coreProducts = [
     badge: "Quality Sourced & Washed",
     image: mineralYard,
     summary: "High silica content sand for glass, casting, filtration and construction.",
-    detail: "Silica sand supply for industrial, construction and other applicable requirements. Carefully sourced, graded and supplied with dependable chemical purity and consistent mesh sizes.",
-    specs: ["High silicon dioxide (SiO2) purity", "Graded mesh sizes for varied applications", "Washed and kiln-dried options", "Continuous quarry sourcing capability"],
+    detail:
+      "Silica sand supply for industrial, construction and other applicable requirements. Carefully sourced, graded and supplied with dependable chemical purity and consistent mesh sizes.",
+    specs: [
+      "High silicon dioxide (SiO2) purity",
+      "Graded mesh sizes for varied applications",
+      "Washed and kiln-dried options",
+      "Continuous quarry sourcing capability",
+    ],
   },
   {
     id: "bauxite",
@@ -119,8 +143,14 @@ export const coreProducts = [
     badge: "Commercial Grade Ore",
     image: mineralMining,
     summary: "Raw bauxite ore for refractory, cement, abrasive and metallurgical use.",
-    detail: "Bauxite sourcing and supply for industrial and commercial applications. We ensure reliable procurement from established geological formations across Pakistan.",
-    specs: ["Consistent alumina (Al2O3) concentration", "Low moisture & controlled ferric content", "Reliable volume dispatch for heavy plants", "Commercial testing and assay certificates"],
+    detail:
+      "Bauxite sourcing and supply for industrial and commercial applications. We ensure reliable procurement from established geological formations across Pakistan.",
+    specs: [
+      "Consistent alumina (Al2O3) concentration",
+      "Low moisture & controlled ferric content",
+      "Reliable volume dispatch for heavy plants",
+      "Commercial testing and assay certificates",
+    ],
   },
   {
     id: "stone-dust",
@@ -129,8 +159,14 @@ export const coreProducts = [
     badge: "Own Stone Crushing Plant",
     image: stoneCrushing,
     summary: "Precision-crushed stone dust produced at our modern crushing facility.",
-    detail: "Through our own stone crushing plant, we produce and supply quality stone dust for construction, infrastructure and project-related requirements. Our crushing operations enable us to provide consistent material according to customer specifications and supply needs.",
-    specs: ["Produced in-house at AMG crushing facility", "Ideal compaction & density properties", "Essential for pavers, asphalt, roads & concrete", "High-volume daily crushing capacity"],
+    detail:
+      "Through our own stone crushing plant, we produce and supply quality stone dust for construction, infrastructure and project-related requirements. Our crushing operations enable us to provide consistent material according to customer specifications and supply needs.",
+    specs: [
+      "Produced in-house at AMG crushing facility",
+      "Ideal compaction & density properties",
+      "Essential for pavers, asphalt, roads & concrete",
+      "High-volume daily crushing capacity",
+    ],
   },
   {
     id: "gypsum",
@@ -139,8 +175,14 @@ export const coreProducts = [
     badge: "High-Purity Natural Mineral",
     image: stoneTransport,
     summary: "Natural gypsum rock and powder for plaster, cement manufacturing and agriculture.",
-    detail: "Gypsum sourcing and supply for relevant industrial and commercial requirements. Perfect for soil conditioning, cement retardation, and building materials manufacturing.",
-    specs: ["High calcium sulfate dihydrate content", "Lump and finely pulverized powder grades", "Ideal for agricultural soil reclamation", "Direct bulk hopper and tipper dispatches"],
+    detail:
+      "Gypsum sourcing and supply for relevant industrial and commercial requirements. Perfect for soil conditioning, cement retardation, and building materials manufacturing.",
+    specs: [
+      "High calcium sulfate dihydrate content",
+      "Lump and finely pulverized powder grades",
+      "Ideal for agricultural soil reclamation",
+      "Direct bulk hopper and tipper dispatches",
+    ],
   },
   {
     id: "copper",
@@ -149,8 +191,14 @@ export const coreProducts = [
     badge: "Copper Ore Sourcing",
     image: quarry,
     summary: "Commercial grade copper ore supply for smelting and industrial trading.",
-    detail: "Copper ore sourcing and supply for commercial and industrial requirements. AMG bridges mining extraction with nationwide trade and smelting buyers.",
-    specs: ["Direct mine-site sourcing networks", "Assayed copper percentages", "Secure logistics and transport escorts", "Transparent trade and commercial terms"],
+    detail:
+      "Copper ore sourcing and supply for commercial and industrial requirements. AMG bridges mining extraction with nationwide trade and smelting buyers.",
+    specs: [
+      "Direct mine-site sourcing networks",
+      "Assayed copper percentages",
+      "Secure logistics and transport escorts",
+      "Transparent trade and commercial terms",
+    ],
   },
 ];
 
@@ -162,7 +210,13 @@ export const generalOrderCategories = [
     title: "Construction & Infrastructure Materials",
     tagline: "Heavy Materials for Megaprojects",
     text: "Materials required for roads, bridges, canals, pipelines and other infrastructure projects across Pakistan. We handle procurement, quality compliance, and scheduled logistics.",
-    items: ["Aggregate & Road Base", "Structural Steel & Rebar", "Canal & Drainage Lining", "Pipeline Bedding & Backfill", "Heavy Quarry Boulders"],
+    items: [
+      "Aggregate & Road Base",
+      "Structural Steel & Rebar",
+      "Canal & Drainage Lining",
+      "Pipeline Bedding & Backfill",
+      "Heavy Quarry Boulders",
+    ],
     image: stoneCrushing,
   },
   {
@@ -170,7 +224,13 @@ export const generalOrderCategories = [
     title: "Agricultural & Food Products",
     tagline: "Commodities & Farm Supplies",
     text: "Rice, poultry, eggs, animal feed and other related requirements. Sourced from dependable producers and agricultural hubs for commercial and institutional buyers.",
-    items: ["Premium Basmati & Non-Basmati Rice", "Poultry & Commercial Eggs", "Quality Animal & Cattle Feed", "Bulk Grains & Milling Byproducts", "Farm Raw Materials"],
+    items: [
+      "Premium Basmati & Non-Basmati Rice",
+      "Poultry & Commercial Eggs",
+      "Quality Animal & Cattle Feed",
+      "Bulk Grains & Milling Byproducts",
+      "Farm Raw Materials",
+    ],
     image: generalSupply,
   },
   {
@@ -178,7 +238,13 @@ export const generalOrderCategories = [
     title: "Industrial & Building Materials",
     tagline: "Essential Bulk Supplies",
     text: "Cement, fly ash, wood and other materials according to specific requirements. Tailored supply schedules directly to construction sites, manufacturing units, and dealers.",
-    items: ["Standard & Sulfate-Resistant Cement", "Fly Ash for Concrete Blends", "Commercial Wood & Timber", "Industrial Chemicals & Additives", "Custom Bulk Order Supplies"],
+    items: [
+      "Standard & Sulfate-Resistant Cement",
+      "Fly Ash for Concrete Blends",
+      "Commercial Wood & Timber",
+      "Industrial Chemicals & Additives",
+      "Custom Bulk Order Supplies",
+    ],
     image: mineralYard,
   },
 ];
@@ -212,8 +278,24 @@ export const whyChooseUs = [
 ];
 
 export const amgStats = [
-  { value: "05", label: "Core Business Activities", detail: "Manufacturing, Processing, Supply, Trading, Logistics" },
-  { value: "07+", label: "Key Mineral & Industrial Lines", detail: "Coal, Salt, Stone Dust, Silica Sand, Bauxite, Gypsum, Copper" },
-  { value: "100%", label: "Operational Integrity", detail: "Grounding every transaction in trust and transparency" },
-  { value: "24/7", label: "Dispatch & Supply Reach", detail: "Headquartered in Khushab, serving projects nationwide" },
+  {
+    value: "05",
+    label: "Core Business Activities",
+    detail: "Manufacturing, Processing, Supply, Trading, Logistics",
+  },
+  {
+    value: "07+",
+    label: "Key Mineral & Industrial Lines",
+    detail: "Coal, Salt, Stone Dust, Silica Sand, Bauxite, Gypsum, Copper",
+  },
+  {
+    value: "100%",
+    label: "Operational Integrity",
+    detail: "Grounding every transaction in trust and transparency",
+  },
+  {
+    value: "24/7",
+    label: "Dispatch & Supply Reach",
+    detail: "Headquartered in Khushab, serving projects nationwide",
+  },
 ];

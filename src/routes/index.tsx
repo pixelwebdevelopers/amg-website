@@ -80,13 +80,18 @@ function HomePage() {
 
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p className="font-semibold text-foreground text-xl">
-              Abid Munir Group is a diversified business organization engaged in Manufacturing, Processing, General Order Supply, Trading and Logistics.
+              Abid Munir Group is a diversified business organization engaged in Manufacturing,
+              Processing, General Order Supply, Trading and Logistics.
             </p>
             <p>
-              Abid Munir Group carries forward the legacy of Malik Abid Munir Awan — a legacy built on hard work, dedication, honesty and a commitment to doing business with integrity. His values are more than a part of our history; they are the foundation of our vision and the motivation that continues to guide us today.
+              Abid Munir Group carries forward the legacy of Malik Abid Munir Awan — a legacy built
+              on hard work, dedication, honesty and a commitment to doing business with integrity.
+              His values are more than a part of our history; they are the foundation of our vision
+              and the motivation that continues to guide us today.
             </p>
             <p>
-              We provide reliable products and supply solutions to meet the diverse requirements of businesses and industries across Pakistan.
+              We provide reliable products and supply solutions to meet the diverse requirements of
+              businesses and industries across Pakistan.
             </p>
             <div className="pt-4 flex flex-wrap gap-4">
               <Button asChild variant="brand" size="lg">
@@ -113,9 +118,7 @@ function HomePage() {
               <p className="mt-2 font-display text-lg font-bold uppercase tracking-wide text-white">
                 {stat.label}
               </p>
-              <p className="mt-1 text-xs text-ink-muted leading-relaxed">
-                {stat.detail}
-              </p>
+              <p className="mt-1 text-xs text-ink-muted leading-relaxed">{stat.detail}</p>
             </div>
           ))}
         </div>
@@ -167,7 +170,8 @@ function HomePage() {
                     to="/services"
                     className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand hover:text-foreground"
                   >
-                    Learn more <ArrowRight className="ml-1 size-3.5 transition-transform group-hover:translate-x-1" />
+                    Learn more{" "}
+                    <ArrowRight className="ml-1 size-3.5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -184,7 +188,8 @@ function HomePage() {
                   Tailored Supply For Megaprojects
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  From industrial minerals to infrastructure general order materials, we arrange, grade and transport according to your project milestones.
+                  From industrial minerals to infrastructure general order materials, we arrange,
+                  grade and transport according to your project milestones.
                 </p>
               </div>
               <div className="mt-8">
@@ -207,7 +212,9 @@ function HomePage() {
                 Industrial & Mineral Products
               </h2>
               <p className="mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
-                While Abid Munir Group has the capability to fulfill diverse General Order Supply requirements, our core strength includes the supply and processing of industrial and mineral products.
+                While Abid Munir Group has the capability to fulfill diverse General Order Supply
+                requirements, our core strength includes the supply and processing of industrial and
+                mineral products.
               </p>
             </div>
             <Button asChild variant="brand" size="lg">
@@ -236,15 +243,11 @@ function HomePage() {
 
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
-                    <span className="eyebrow text-muted-foreground text-[10px]">
-                      {p.category}
-                    </span>
+                    <span className="eyebrow text-muted-foreground text-[10px]">{p.category}</span>
                     <h3 className="mt-1 font-display text-2xl font-bold uppercase text-foreground group-hover:text-brand transition-colors">
                       {p.name}
                     </h3>
-                    <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                      {p.detail}
-                    </p>
+                    <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{p.detail}</p>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-border">
@@ -268,7 +271,10 @@ function HomePage() {
                 Need Construction, Agricultural, or Food Supplies?
               </h4>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                In addition to our core products, we facilitate the supply of various other materials and products based on customer requirements, including construction materials, agricultural products, food-related supplies and other general order requirements.
+                In addition to our core products, we facilitate the supply of various other
+                materials and products based on customer requirements, including construction
+                materials, agricultural products, food-related supplies and other general order
+                requirements.
               </p>
             </div>
             <Button asChild variant="brand" size="lg" className="shrink-0">
@@ -309,9 +315,7 @@ function HomePage() {
                   <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white">
                     {cat.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                    {cat.text}
-                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-ink-muted">{cat.text}</p>
 
                   <div className="mt-6 space-y-2">
                     {cat.items.map((item) => (
@@ -364,7 +368,8 @@ function HomePage() {
               Built on trust. Driven by capability.
             </h2>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              We focus on building dependable sourcing and supplier networks to ensure consistent product availability for every business partner.
+              We focus on building dependable sourcing and supplier networks to ensure consistent
+              product availability for every business partner.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -401,31 +406,45 @@ function HomePage() {
                 Serving Industries Across Pakistan
               </h2>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                Headquartered in Khushab, Punjab — the mineral and industrial corridor of Pakistan — Abid Munir Group manages active transport routes to major industrial zones, ports, and construction megaprojects.
+                Headquartered in Khushab, Punjab — the mineral and industrial corridor of Pakistan —
+                Abid Munir Group manages active transport routes to major industrial zones, ports,
+                and construction megaprojects.
               </p>
 
               <div className="mt-8 grid gap-4">
                 <div className="flex items-center gap-3 bg-card p-4 border border-border">
                   <MapPin className="size-5 text-brand shrink-0" />
                   <div>
-                    <span className="font-display font-bold text-sm uppercase">Khushab Hub & Mines</span>
-                    <p className="text-xs text-muted-foreground">Salt Range, Coal Mines, Stone Crushing & Mineral Stockpiles</p>
+                    <span className="font-display font-bold text-sm uppercase">
+                      Khushab Hub & Mines
+                    </span>
+                    <p className="text-xs text-muted-foreground">
+                      Salt Range, Coal Mines, Stone Crushing & Mineral Stockpiles
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 bg-card p-4 border border-border">
                   <Truck className="size-5 text-brand shrink-0" />
                   <div>
-                    <span className="font-display font-bold text-sm uppercase">Nationwide Freight & Logistics</span>
-                    <p className="text-xs text-muted-foreground">Dedicated fleet supplying Punjab, Sindh, KPK, Balochistan & Port Qasim</p>
+                    <span className="font-display font-bold text-sm uppercase">
+                      Nationwide Freight & Logistics
+                    </span>
+                    <p className="text-xs text-muted-foreground">
+                      Dedicated fleet supplying Punjab, Sindh, KPK, Balochistan & Port Qasim
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 bg-card p-4 border border-border">
                   <ShieldCheck className="size-5 text-brand shrink-0" />
                   <div>
-                    <span className="font-display font-bold text-sm uppercase">Guaranteed Quality Assays</span>
-                    <p className="text-xs text-muted-foreground">Pre-dispatch inspection, lab certifications, and on-schedule delivery</p>
+                    <span className="font-display font-bold text-sm uppercase">
+                      Guaranteed Quality Assays
+                    </span>
+                    <p className="text-xs text-muted-foreground">
+                      Pre-dispatch inspection, lab certifications, and on-schedule delivery
+                    </p>
                   </div>
                 </div>
               </div>
@@ -442,7 +461,8 @@ function HomePage() {
                   Dependable Supply Chain Coordination
                 </p>
                 <p className="mt-2 text-xs text-ink-muted leading-relaxed">
-                  Our logistics team ensures fast turnaround times, secure transport documentation, and reliable weighing and verification at source and destination.
+                  Our logistics team ensures fast turnaround times, secure transport documentation,
+                  and reliable weighing and verification at source and destination.
                 </p>
               </div>
             </div>

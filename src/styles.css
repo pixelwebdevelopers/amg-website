@@ -98,7 +98,12 @@
   --ink-muted: oklch(0.72 0.008 65);
   --ink-soft: oklch(0.87 0.006 65);
   --ink-line: oklch(1 0 0 / 14%);
-  --hero-shade: linear-gradient(90deg, oklch(0.08 0.01 25 / 92%) 0%, oklch(0.08 0.01 25 / 66%) 48%, oklch(0.08 0.01 25 / 20%) 100%);
+  --hero-shade: linear-gradient(
+    90deg,
+    oklch(0.08 0.01 25 / 92%) 0%,
+    oklch(0.08 0.01 25 / 66%) 48%,
+    oklch(0.08 0.01 25 / 20%) 100%
+  );
   --card-shade: linear-gradient(0deg, oklch(0.08 0.01 25 / 92%) 0%, transparent 100%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -162,8 +167,14 @@
     letter-spacing: 0;
   }
 
-  ::selection { background: var(--brand); color: var(--primary-foreground); }
-  button, a { -webkit-tap-highlight-color: transparent; }
+  ::selection {
+    background: var(--brand);
+    color: var(--primary-foreground);
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @utility shell {
@@ -188,18 +199,37 @@
   letter-spacing: 0;
   color: var(--muted-foreground);
   transition: color 180ms ease;
-  &:hover { color: var(--foreground); }
-  &::after { content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 2px; transform: scaleX(0); background: var(--brand); transition: transform 180ms ease; }
+  &:hover {
+    color: var(--foreground);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 2px;
+    transform: scaleX(0);
+    background: var(--brand);
+    transition: transform 180ms ease;
+  }
 }
 
 @utility nav-link-active {
   color: var(--foreground);
-  &::after { transform: scaleX(1); }
+  &::after {
+    transform: scaleX(1);
+  }
 }
 
-@utility bg-hero-shade { background: var(--hero-shade); }
-@utility bg-card-shade { background: var(--card-shade); }
+@utility bg-hero-shade {
+  background: var(--hero-shade);
+}
+@utility bg-card-shade {
+  background: var(--card-shade);
+}
 
 @media (max-width: 640px) {
-  .shell { width: min(100% - 2rem, 80rem); }
+  .shell {
+    width: min(100% - 2rem, 80rem);
+  }
 }

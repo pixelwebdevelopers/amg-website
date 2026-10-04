@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Shield, Target, Compass, HeartHandshake, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Shield,
+  Target,
+  Compass,
+  HeartHandshake,
+  MapPin,
+} from "lucide-react";
 import { ContactBand, PageIntro, SectionTitle } from "@/components/page-sections";
 import { Button } from "@/components/ui/button";
 import { images, companyContact, amgStats } from "@/lib/amg-data";
@@ -16,8 +24,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Us — Abid Munir Group" },
       {
         property: "og:description",
-        content:
-          "Honouring a legacy. Building a vision. Shaping the future across Pakistan.",
+        content: "Honouring a legacy. Building a vision. Shaping the future across Pakistan.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -81,16 +88,26 @@ function AboutPage() {
 
           <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p className="font-semibold text-foreground text-xl leading-relaxed">
-              Abid Munir Group carries forward the legacy of Malik Abid Munir Awan — a legacy built on hard work, dedication, honesty and a commitment to doing business with integrity.
+              Abid Munir Group carries forward the legacy of Malik Abid Munir Awan — a legacy built
+              on hard work, dedication, honesty and a commitment to doing business with integrity.
             </p>
             <p>
-              His values are more than a part of our history; they are the foundation of our vision and the motivation that continues to guide us today.
+              His values are more than a part of our history; they are the foundation of our vision
+              and the motivation that continues to guide us today.
             </p>
             <p>
-              In a rapidly changing world driven by innovation, new trends and evolving business needs, we are building a team that is committed to carrying this legacy forward while embracing new ideas, modern approaches and sustainable opportunities. Our aim is to preserve the principles that define our identity while continuously evolving to meet the demands of the future.
+              In a rapidly changing world driven by innovation, new trends and evolving business
+              needs, we are building a team that is committed to carrying this legacy forward while
+              embracing new ideas, modern approaches and sustainable opportunities. Our aim is to
+              preserve the principles that define our identity while continuously evolving to meet
+              the demands of the future.
             </p>
             <p>
-              Through Manufacturing, Processing, General Order Supply, Trading and Logistics, we strive to create reliable business solutions and lasting relationships based on trust, commitment and service. Every step we take is a reflection of the values we inherited and a genuine effort to honour the legacy of Malik Abid Munir Awan — by transforming his principles into a continuing vision for the generations ahead.
+              Through Manufacturing, Processing, General Order Supply, Trading and Logistics, we
+              strive to create reliable business solutions and lasting relationships based on trust,
+              commitment and service. Every step we take is a reflection of the values we inherited
+              and a genuine effort to honour the legacy of Malik Abid Munir Awan — by transforming
+              his principles into a continuing vision for the generations ahead.
             </p>
           </div>
         </div>
@@ -105,7 +122,10 @@ function AboutPage() {
               Preserving Principles While Embracing The Future.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed">
-              At Abid Munir Group, our operations bridge natural resource extraction with nationwide commercial markets. From owned mines in the mineral-rich regions of Pakistan to our modern stone crushing facilities and trading networks, we ensure consistency at every step.
+              At Abid Munir Group, our operations bridge natural resource extraction with nationwide
+              commercial markets. From owned mines in the mineral-rich regions of Pakistan to our
+              modern stone crushing facilities and trading networks, we ensure consistency at every
+              step.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2 pt-2">
@@ -177,9 +197,7 @@ function AboutPage() {
                 <h3 className="mt-6 font-display text-xl font-bold uppercase text-foreground group-hover:text-brand transition-colors">
                   {v.title}
                 </h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {v.desc}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -195,10 +213,14 @@ function AboutPage() {
               Relationships Made To Last.
             </h2>
             <p className="mt-6 text-base text-ink-muted leading-relaxed">
-              Through Manufacturing, Processing, General Order Supply, Trading and Logistics, we strive to create reliable business solutions and lasting relationships based on trust, commitment and service.
+              Through Manufacturing, Processing, General Order Supply, Trading and Logistics, we
+              strive to create reliable business solutions and lasting relationships based on trust,
+              commitment and service.
             </p>
             <p className="mt-4 text-base text-ink-muted leading-relaxed">
-              Whether you represent an industrial plant, a construction firm, an agricultural enterprise, or a commercial distributor, Abid Munir Group stands as your dependable partner on the ground.
+              Whether you represent an industrial plant, a construction firm, an agricultural
+              enterprise, or a commercial distributor, Abid Munir Group stands as your dependable
+              partner on the ground.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -228,7 +250,10 @@ function AboutPage() {
                 <CheckCircle2 className="size-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-white">Operational Facilities:</strong>
-                  <span>Own Coal Mines, Salt Mining Operations, Stone Crushing Plant & Mineral Yards in Khushab & surrounding industrial zones.</span>
+                  <span>
+                    Own Coal Mines, Salt Mining Operations, Stone Crushing Plant & Mineral Yards in
+                    Khushab & surrounding industrial zones.
+                  </span>
                 </div>
               </div>
 
@@ -236,7 +261,10 @@ function AboutPage() {
                 <CheckCircle2 className="size-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-white">Supply Reach:</strong>
-                  <span>Punjab, Sindh, Khyber Pakhtunkhwa, Balochistan, and Nationwide Industrial Corridors.</span>
+                  <span>
+                    Punjab, Sindh, Khyber Pakhtunkhwa, Balochistan, and Nationwide Industrial
+                    Corridors.
+                  </span>
                 </div>
               </div>
             </div>

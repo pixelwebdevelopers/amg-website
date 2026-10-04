@@ -57,15 +57,17 @@ function ContactPage() {
 
   const handleSubmitEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Business Requirement: ${formData.productOrService} - ${formData.name}`);
+    const subject = encodeURIComponent(
+      `Business Requirement: ${formData.productOrService} - ${formData.name}`,
+    );
     const body = encodeURIComponent(
       `Name: ${formData.name}\n` +
-      `Company: ${formData.company || "N/A"}\n` +
-      `Phone: ${formData.phone}\n` +
-      `Email: ${formData.email}\n` +
-      `Product/Service Category: ${formData.productOrService}\n\n` +
-      `Requirement Details:\n${formData.requirement}\n\n` +
-      `Sent from Abid Munir Group Website`
+        `Company: ${formData.company || "N/A"}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Email: ${formData.email}\n` +
+        `Product/Service Category: ${formData.productOrService}\n\n` +
+        `Requirement Details:\n${formData.requirement}\n\n` +
+        `Sent from Abid Munir Group Website`,
     );
     setSubmittedMethod("email");
     window.location.href = `mailto:${companyContact.email}?subject=${subject}&body=${body}`;
@@ -74,11 +76,11 @@ function ContactPage() {
   const handleSendWhatsApp = () => {
     const text = encodeURIComponent(
       `Hello Abid Munir Group,\n\n` +
-      `Name: ${formData.name || "Business Client"}\n` +
-      `Company: ${formData.company || "N/A"}\n` +
-      `Phone: ${formData.phone || "N/A"}\n` +
-      `Category: ${formData.productOrService}\n` +
-      `Requirement: ${formData.requirement || "I would like to inquire about your supply & pricing."}`
+        `Name: ${formData.name || "Business Client"}\n` +
+        `Company: ${formData.company || "N/A"}\n` +
+        `Phone: ${formData.phone || "N/A"}\n` +
+        `Category: ${formData.productOrService}\n` +
+        `Requirement: ${formData.requirement || "I would like to inquire about your supply & pricing."}`,
     );
     setSubmittedMethod("whatsapp");
     window.open(`https://wa.me/${companyContact.whatsapp2}?text=${text}`, "_blank");
@@ -106,7 +108,8 @@ function ContactPage() {
               Honouring a legacy. Building a vision. Shaping the future.
             </p>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Our representative desk in Khushab, Punjab connects with industrial buyers, contractors, and trading partners across all provinces of Pakistan.
+              Our representative desk in Khushab, Punjab connects with industrial buyers,
+              contractors, and trading partners across all provinces of Pakistan.
             </p>
 
             <div className="mt-10 grid gap-6">
@@ -123,7 +126,9 @@ function ContactPage() {
                   >
                     {companyContact.phoneDisplay}
                   </a>
-                  <span className="text-xs text-muted-foreground">Direct calls & business inquiries</span>
+                  <span className="text-xs text-muted-foreground">
+                    Direct calls & business inquiries
+                  </span>
                 </div>
               </div>
 
@@ -155,12 +160,12 @@ function ContactPage() {
                   </div>
                   <div className="mt-2">
                     <a
-                      href={companyContact.socials.whatsappQr}
+                      href={companyContact.socials.whatsapp}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 hover:underline"
                     >
-                      Scan Official WhatsApp QR Code <ArrowUpRight className="size-3" />
+                      Chat Directly on WhatsApp <ArrowUpRight className="size-3" />
                     </a>
                   </div>
                 </div>
@@ -179,7 +184,9 @@ function ContactPage() {
                   >
                     {companyContact.email}
                   </a>
-                  <span className="text-xs text-muted-foreground">Formal RFQs, contracts & tender inquiries</span>
+                  <span className="text-xs text-muted-foreground">
+                    Formal RFQs, contracts & tender inquiries
+                  </span>
                 </div>
               </div>
 
@@ -200,7 +207,9 @@ function ContactPage() {
 
             {/* Social Channels */}
             <div className="mt-8 pt-6 border-t border-border">
-              <span className="eyebrow block text-muted-foreground mb-3">FOLLOW US ON SOCIAL MEDIA</span>
+              <span className="eyebrow block text-muted-foreground mb-3">
+                FOLLOW US ON SOCIAL MEDIA
+              </span>
               <div className="flex items-center gap-4">
                 <a
                   href={companyContact.socials.facebook}
@@ -223,47 +232,48 @@ function ContactPage() {
           </div>
 
           {/* Right: SEND US YOUR REQUIREMENT Form */}
-          <div className="border border-border bg-muted/80 p-8 md:p-12 shadow-sm">
+          <div className="border-2 border-border bg-card p-6 sm:p-10 lg:p-12 shadow-xl">
             <span className="eyebrow text-brand">SEND US YOUR REQUIREMENT</span>
             <h2 className="mt-3 font-display text-3xl font-extrabold uppercase text-foreground md:text-4xl">
               Tell Us What You Need
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Tell us what product, material or service you require. Our team will review your requirement and get back to you with a suitable supply or business solution.
+              Tell us what product, material or service you require. Our team will review your
+              requirement and get back to you with a suitable supply or business solution.
             </p>
 
-            <form onSubmit={handleSubmitEmail} className="mt-8 space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
+            <form onSubmit={handleSubmitEmail} className="mt-8 space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-2">
-                    Your Full Name *
+                  <label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-foreground mb-2">
+                    Your Full Name <span className="text-brand">*</span>
                   </label>
                   <Input
                     required
                     placeholder="e.g. Malik Tariq"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-card"
+                    className="h-12 bg-background border-border"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-2">
+                  <label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-foreground mb-2">
                     Company / Organization
                   </label>
                   <Input
                     placeholder="e.g. Punjab Power / ABC Mills"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="bg-card"
+                    className="h-12 bg-background border-border"
                   />
                 </div>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-6 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-2">
-                    Phone / WhatsApp Number *
+                  <label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-foreground mb-2">
+                    Phone / WhatsApp Number <span className="text-brand">*</span>
                   </label>
                   <Input
                     required
@@ -271,13 +281,13 @@ function ContactPage() {
                     placeholder="e.g. +92 300 1234567"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="bg-card"
+                    className="h-12 bg-background border-border"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-2">
-                    Email Address *
+                  <label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-foreground mb-2">
+                    Email Address <span className="text-brand">*</span>
                   </label>
                   <Input
                     required
@@ -285,38 +295,52 @@ function ContactPage() {
                     placeholder="e.g. info@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-card"
+                    className="h-12 bg-background border-border"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-2">
-                  Product or Service Category *
+                <label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-foreground mb-2">
+                  Product or Service Category <span className="text-brand">*</span>
                 </label>
-                <select
-                  className="flex h-10 w-full rounded-none border border-input bg-card px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  value={formData.productOrService}
-                  onChange={(e) => setFormData({ ...formData, productOrService: e.target.value })}
-                >
-                  <option value="Coal Mining & Supply">Coal Mining & Supply</option>
-                  <option value="Salt Mining & Processing">Salt Mining & Processing</option>
-                  <option value="Stone Dust & Crushing Plant">Stone Dust & Crushing Plant</option>
-                  <option value="Silica Sand Supply">Silica Sand Supply</option>
-                  <option value="Bauxite Sourcing">Bauxite Sourcing</option>
-                  <option value="Gypsum Supply">Gypsum Supply</option>
-                  <option value="Copper Ore Trading">Copper Ore Trading</option>
-                  <option value="Construction & Infrastructure Materials">Construction & Infrastructure Materials</option>
-                  <option value="Agricultural & Food Commodities">Agricultural & Food Commodities</option>
-                  <option value="Industrial & Building Materials">Industrial & Building Materials</option>
-                  <option value="Logistics & Transport Solutions">Logistics & Transport Solutions</option>
-                  <option value="General Order / Other">Other General Order Requirement</option>
-                </select>
+                <div className="relative">
+                  <select
+                    className="flex h-12 w-full appearance-none rounded-none border border-border bg-background px-4 py-2 text-sm text-foreground shadow-sm transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 cursor-pointer pr-10"
+                    value={formData.productOrService}
+                    onChange={(e) => setFormData({ ...formData, productOrService: e.target.value })}
+                  >
+                    <option value="Coal Mining & Supply">Coal Mining & Supply</option>
+                    <option value="Salt Mining & Processing">Salt Mining & Processing</option>
+                    <option value="Stone Dust & Crushing Plant">Stone Dust & Crushing Plant</option>
+                    <option value="Silica Sand Supply">Silica Sand Supply</option>
+                    <option value="Bauxite Sourcing">Bauxite Sourcing</option>
+                    <option value="Gypsum Supply">Gypsum Supply</option>
+                    <option value="Copper Ore Trading">Copper Ore Trading</option>
+                    <option value="Construction & Infrastructure Materials">
+                      Construction & Infrastructure Materials
+                    </option>
+                    <option value="Agricultural & Food Commodities">
+                      Agricultural & Food Commodities
+                    </option>
+                    <option value="Industrial & Building Materials">
+                      Industrial & Building Materials
+                    </option>
+                    <option value="Logistics & Transport Solutions">
+                      Logistics & Transport Solutions
+                    </option>
+                    <option value="General Order / Other">Other General Order Requirement</option>
+                  </select>
+                  <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    ▼
+                  </div>
+                </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-2">
-                  Describe Your Requirement (Quantity, Destination, Specs) *
+                <label className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-foreground mb-2">
+                  Describe Your Requirement (Quantity, Destination, Specs){" "}
+                  <span className="text-brand">*</span>
                 </label>
                 <Textarea
                   required
@@ -324,31 +348,37 @@ function ContactPage() {
                   placeholder="Provide details about expected tons/volume, delivery schedule, destination in Pakistan, and required specifications..."
                   value={formData.requirement}
                   onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-                  className="bg-card"
+                  className="bg-background border-border min-h-[130px]"
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button type="submit" variant="brand" size="xl" className="flex-1">
-                  <Send className="mr-2 size-4" /> Send Requirement via Email
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+                <Button
+                  type="submit"
+                  variant="brand"
+                  className="w-full sm:flex-1 h-auto min-h-[48px] py-3.5 px-4 sm:px-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-center justify-center whitespace-normal shadow-md"
+                >
+                  <Send className="size-4 shrink-0" />
+                  <span>Send Requirement via Email</span>
                 </Button>
 
                 <Button
                   type="button"
                   variant="contrast"
-                  size="xl"
                   onClick={handleSendWhatsApp}
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white"
+                  className="w-full sm:flex-1 h-auto min-h-[48px] py-3.5 px-4 sm:px-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-center justify-center whitespace-normal bg-red-600 hover:bg-red-700 text-white shadow-md"
                 >
-                  <MessageCircle className="mr-2 size-4" /> Send via WhatsApp
+                  <MessageCircle className="size-4 shrink-0" />
+                  <span>Send via WhatsApp</span>
                 </Button>
               </div>
 
               {submittedMethod && (
-                <div className="p-4 bg-card border border-border text-xs text-muted-foreground">
+                <div className="p-4 bg-muted border border-border text-xs text-muted-foreground">
                   {submittedMethod === "email" ? (
                     <p className="text-green-600 font-semibold">
-                      Your default mail client is preparing the requirement draft to send to <strong className="text-foreground">abidmunirawan@gmail.com</strong>.
+                      Your default mail client is preparing the requirement draft to send to{" "}
+                      <strong className="text-foreground">abidmunirawan@gmail.com</strong>.
                     </p>
                   ) : (
                     <p className="text-red-600 font-semibold">

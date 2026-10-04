@@ -1,5 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, CheckCircle2, Factory, Cpu, Layers, Repeat, Truck, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  Factory,
+  Cpu,
+  Layers,
+  Repeat,
+  Truck,
+  ShieldCheck,
+} from "lucide-react";
 import { ContactBand, PageIntro, SectionTitle } from "@/components/page-sections";
 import { Button } from "@/components/ui/button";
 import { images, businessActivities } from "@/lib/amg-data";
@@ -91,8 +101,13 @@ function ServicesPage() {
 
                     {index === 2 && (
                       <div className="mt-4 rounded-none bg-muted/70 p-4 border border-border text-xs text-muted-foreground leading-relaxed">
-                        <strong className="text-foreground block mb-1">Our Core Portfolio & Scope:</strong>
-                        Coal, Salt, Silica Sand, Bauxite, Stone Dust, Gypsum and Copper Ore, plus infrastructure materials (roads, bridges, canals, pipelines), agricultural commodities (rice, poultry, eggs, animal feed), and building products (cement, fly ash, wood).
+                        <strong className="text-foreground block mb-1">
+                          Our Core Portfolio & Scope:
+                        </strong>
+                        Coal, Salt, Silica Sand, Bauxite, Stone Dust, Gypsum and Copper Ore, plus
+                        infrastructure materials (roads, bridges, canals, pipelines), agricultural
+                        commodities (rice, poultry, eggs, animal feed), and building products
+                        (cement, fly ash, wood).
                       </div>
                     )}
                   </div>
@@ -130,7 +145,9 @@ function ServicesPage() {
               ONE GROUP, DIVERSE CAPABILITIES, RELIABLE SOLUTIONS.
             </h2>
             <p className="mt-6 text-lg text-ink-soft leading-relaxed max-w-2xl font-normal">
-              Whether the requirement involves a specific product, bulk material, general order, trading opportunity or logistics support, Abid Munir Group works to provide a practical and dependable business solution.
+              Whether the requirement involves a specific product, bulk material, general order,
+              trading opportunity or logistics support, Abid Munir Group works to provide a
+              practical and dependable business solution.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">

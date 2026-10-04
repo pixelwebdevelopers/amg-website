@@ -56,9 +56,7 @@ export function SectionTitle({
 }) {
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className={`eyebrow ${inverse ? "text-brand-soft" : "text-brand"}`}>
-        {eyebrow}
-      </p>
+      <p className={`eyebrow ${inverse ? "text-brand-soft" : "text-brand"}`}>{eyebrow}</p>
       <h2
         className={`mt-4 font-display text-4xl font-extrabold uppercase leading-tight md:text-5xl ${
           inverse ? "text-ink-foreground" : "text-foreground"
@@ -89,12 +87,18 @@ export function ContactBand() {
             Looking for a reliable supplier, trading partner or business solution?
           </h2>
           <p className="mt-3 text-sm md:text-base text-primary-foreground/90 font-medium">
-            Contact Abid Munir Group to discuss your requirements. Serving all provinces across Pakistan.
+            Contact Abid Munir Group to discuss your requirements. Serving all provinces across
+            Pakistan.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4 shrink-0">
-          <Button asChild variant="contrast" size="xl" className="shadow-xl">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto shrink-0">
+          <Button
+            asChild
+            variant="contrast"
+            size="xl"
+            className="w-full sm:w-auto shadow-xl justify-center"
+          >
             <Link to="/contact">
               Send Your Requirement <ArrowRight className="ml-1 size-4" />
             </Link>
@@ -104,7 +108,7 @@ export function ContactBand() {
             href={`https://wa.me/${companyContact.whatsapp2}?text=Hello%20Abid%20Munir%20Group`}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-white/80 bg-red-700/80 px-6 py-3 font-display text-sm font-bold uppercase text-white hover:bg-red-800 transition"
+            className="inline-flex items-center justify-center gap-2 border-2 border-white/80 bg-red-700/80 px-6 py-3 font-display text-sm font-bold uppercase text-white hover:bg-red-800 transition w-full sm:w-auto text-center"
           >
             <MessageCircle className="size-4" />
             WhatsApp Now

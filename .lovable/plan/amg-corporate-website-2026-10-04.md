@@ -1,9 +1,11 @@
 # AMG Corporate Website
 
 ## Goal
+
 Build a polished, multi-page website for Abid Munir Group using the supplied company copy, AMG logo, and industrial photography. The visual direction will use a white foundation with strong red and black accents, bold industrial typography, and authentic Pakistan-focused imagery.
 
 ## Pages
+
 - **Home** — premium full-width image slider, company introduction, five business activities, core product overview, trust points, and contact call-to-action.
 - **About** — legacy of Malik Abid Munir Awan, company values, vision, and group capabilities.
 - **Products** — core mineral products plus broader general-order supply categories.
@@ -11,6 +13,7 @@ Build a polished, multi-page website for Abid Munir Group using the supplied com
 - **Contact** — phone, WhatsApp, email, Khushab address, and a requirement enquiry form that opens a prepared email.
 
 ## Experience
+
 - Shared desktop and mobile navigation with the AMG logo and clear enquiry action.
 - Premium homepage slider with automatic progression, manual arrows, indicators, pause-on-hover, and reduced-motion support.
 - Clean editorial layouts, restrained motion, sharp industrial detailing, and accessible contrast.
@@ -18,6 +21,7 @@ Build a polished, multi-page website for Abid Munir Group using the supplied com
 - Responsive presentation for phones, tablets, and desktop screens.
 
 ## Technical Details
+
 - Build with the existing TanStack Start routing and Tailwind v4 token system.
 - Create reusable site header, footer, page intro, service, product, and call-to-action components.
 - Store uploaded media through the project asset pipeline and derive the favicon from the supplied AMG logo.

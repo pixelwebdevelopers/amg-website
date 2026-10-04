@@ -12,8 +12,10 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         brand: "rounded-none bg-primary text-primary-foreground shadow-none hover:bg-primary/88",
         contrast: "rounded-none bg-foreground text-background shadow-none hover:bg-foreground/85",
-        heroOutline: "rounded-none border border-ink-foreground/60 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground hover:text-ink",
-        heroIcon: "rounded-none border border-ink-foreground/40 bg-ink/20 text-ink-foreground shadow-none backdrop-blur-sm hover:bg-ink-foreground hover:text-ink",
+        heroOutline:
+          "rounded-none border border-ink-foreground/60 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground hover:text-ink",
+        heroIcon:
+          "rounded-none border border-ink-foreground/40 bg-ink/20 text-ink-foreground shadow-none backdrop-blur-sm hover:bg-ink-foreground hover:text-ink",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",

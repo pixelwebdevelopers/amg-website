@@ -9,28 +9,32 @@ const slides = [
     image: images.coal,
     eyebrow: "YOUR TRUSTED BUSINESS PARTNER",
     title: "Honouring a legacy. Building a vision.",
-    subtitle: "Carrying forward the principles of Malik Abid Munir Awan with integrity, dedication and modern industrial capabilities across Pakistan.",
+    subtitle:
+      "Carrying forward the principles of Malik Abid Munir Awan with integrity, dedication and modern industrial capabilities across Pakistan.",
     tag: "Mining & Industrial Energy",
   },
   {
     image: images.saltMining,
     eyebrow: "OWN MINING & PROCESSING",
     title: "Quality Salt & Mineral Operations",
-    subtitle: "Direct extraction from our owned salt mines and processing plants, delivering industrial and commercial grade consistency.",
+    subtitle:
+      "Direct extraction from our owned salt mines and processing plants, delivering industrial and commercial grade consistency.",
     tag: "Salt & Mineral Extraction",
   },
   {
     image: images.stoneCrushing,
     eyebrow: "MANUFACTURING & CRUSHING",
     title: "Heavy Stone Dust & Aggregate Supply",
-    subtitle: "State-of-the-art stone crushing plant producing precision stone dust for roads, infrastructure, canals and megaprojects.",
+    subtitle:
+      "State-of-the-art stone crushing plant producing precision stone dust for roads, infrastructure, canals and megaprojects.",
     tag: "Infrastructure Aggregate",
   },
   {
     image: images.generalSupply,
     eyebrow: "GENERAL ORDER SUPPLY",
     title: "Sourcing & Logistics Without Limits",
-    subtitle: "From industrial construction materials to agricultural commodities and mineral trading, dependable end-to-end solutions.",
+    subtitle:
+      "From industrial construction materials to agricultural commodities and mineral trading, dependable end-to-end solutions.",
     tag: "Nationwide Supply Chain",
   },
 ];
@@ -43,13 +47,12 @@ export function HeroSlider() {
     if (paused) return;
     const timer = window.setInterval(
       () => setActive((current) => (current + 1) % slides.length),
-      6500
+      6500,
     );
     return () => window.clearInterval(timer);
   }, [paused]);
 
-  const change = (next: number) =>
-    setActive((next + slides.length) % slides.length);
+  const change = (next: number) => setActive((next + slides.length) % slides.length);
 
   return (
     <section
