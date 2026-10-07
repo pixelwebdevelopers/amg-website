@@ -14,9 +14,12 @@ import {
   MapPin,
   Phone,
   Mail,
+  FileText,
+  Download,
 } from "lucide-react";
 import { HeroSlider } from "@/components/hero-slider";
 import { ContactBand, SectionTitle } from "@/components/page-sections";
+import { OperationsReelsSection } from "@/components/operations-reels";
 import { Button } from "@/components/ui/button";
 import {
   images,
@@ -26,6 +29,7 @@ import {
   generalOrderCategories,
   amgStats,
   companyContact,
+  pdfDocuments,
 } from "@/lib/amg-data";
 
 export const Route = createFileRoute("/")({
@@ -102,6 +106,15 @@ function HomePage() {
               <Button asChild variant="outline" size="lg">
                 <Link to="/contact">Contact Our Team</Link>
               </Button>
+              <a
+                href={pdfDocuments.saltProductProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border bg-card px-5 py-2.5 font-display text-xs font-bold uppercase text-foreground hover:border-brand hover:text-brand transition shadow-sm"
+              >
+                <Download className="size-4 text-brand" />
+                Salt Profile (PDF)
+              </a>
             </div>
           </div>
         </div>
@@ -156,7 +169,15 @@ function HomePage() {
                     </div>
                   </div>
 
-                  <h3 className="mt-6 font-display text-2xl font-bold uppercase tracking-wide text-foreground group-hover:text-brand transition-colors">
+                  <div className="relative aspect-[16/10] overflow-hidden my-5 border border-border bg-ink">
+                    <img
+                      src={act.image}
+                      alt={`${act.title} - Abid Munir Group`}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-foreground group-hover:text-brand transition-colors">
                     {act.title}
                   </h3>
 
@@ -185,7 +206,7 @@ function HomePage() {
               <div>
                 <span className="eyebrow text-brand">CORE STRENGTH</span>
                 <h3 className="mt-4 font-display text-3xl font-extrabold uppercase text-white leading-tight">
-                  Tailored Supply For Megaprojects
+                  Tailored Supply For Mega projects
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-ink-muted">
                   From industrial minerals to infrastructure general order materials, we arrange,
@@ -202,7 +223,10 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 5. OUR CORE SUPPLY STRENGTH (Industrial & Mineral Products) */}
+      {/* 5. NEW: REAL-TIME FIELD OPERATIONS & PORTRAIT VIDEO REELS */}
+      <OperationsReelsSection />
+
+      {/* 6. OUR CORE SUPPLY STRENGTH (Industrial & Mineral Products) */}
       <section className="bg-muted py-20 lg:py-28 border-y border-border">
         <div className="shell">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -217,15 +241,26 @@ function HomePage() {
                 mineral products.
               </p>
             </div>
-            <Button asChild variant="brand" size="lg">
-              <Link to="/products">
-                View All Products <ArrowRight className="ml-1 size-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={pdfDocuments.saltProductProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border bg-card px-5 py-3 font-display text-xs font-bold uppercase text-foreground hover:border-brand hover:text-brand transition shadow-sm"
+              >
+                <FileText className="size-4 text-brand" />
+                Download Salt Profile (PDF)
+              </a>
+              <Button asChild variant="brand" size="lg">
+                <Link to="/products">
+                  View All Products <ArrowRight className="ml-1 size-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {coreProducts.map((p, idx) => (
+            {coreProducts.map((p) => (
               <article
                 key={p.id}
                 className="group flex flex-col overflow-hidden border border-border bg-card shadow-sm transition duration-300 hover:shadow-xl hover:border-brand"
@@ -250,13 +285,24 @@ function HomePage() {
                     <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{p.detail}</p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-border">
+                  <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
                     <Link
                       to="/contact"
                       className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand hover:underline"
                     >
                       Inquire Bulk Supply <ArrowUpRight className="ml-1 size-3.5" />
                     </Link>
+                    {p.id === "salt" && (
+                      <a
+                        href={pdfDocuments.saltProductProfile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-bold text-muted-foreground hover:text-brand"
+                        title="Download Salt Profile PDF"
+                      >
+                        PDF Profile
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
@@ -286,7 +332,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 6. GENERAL ORDER SUPPLY (Beyond Minerals Scope Showcase) */}
+      {/* 7. GENERAL ORDER SUPPLY (Beyond Minerals Scope Showcase) */}
       <section className="py-20 lg:py-28 bg-ink text-ink-foreground">
         <div className="shell">
           <SectionTitle
@@ -338,14 +384,14 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 7. WHY CHOOSE US (5 Pillars From Client Text) */}
+      {/* 8. WHY CHOOSE US (5 Pillars From Client Text) */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="shell grid gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative">
             <div className="overflow-hidden border border-border shadow-xl">
               <img
-                src={images.mineralMining}
-                alt="AMG Pakistani Mineral & Quarry Operations"
+                src={images.trading}
+                alt="AMG Pakistani Mineral & Trading Operations"
                 className="aspect-[4/3] h-full w-full object-cover"
               />
             </div>
@@ -396,7 +442,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 8. Operational Footprint & Nationwide Logistics Section */}
+      {/* 9. Operational Footprint & Nationwide Logistics Section */}
       <section className="bg-muted py-20 lg:py-24 border-t border-border">
         <div className="shell">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] items-center">
@@ -408,7 +454,7 @@ function HomePage() {
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                 Headquartered in Khushab, Punjab — the mineral and industrial corridor of Pakistan —
                 Abid Munir Group manages active transport routes to major industrial zones, ports,
-                and construction megaprojects.
+                and construction mega projects.
               </p>
 
               <div className="mt-8 grid gap-4">
@@ -470,7 +516,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 9. Contact / Tell Us What You Need Band */}
+      {/* 10. Contact / Tell Us What You Need Band */}
       <ContactBand />
     </>
   );

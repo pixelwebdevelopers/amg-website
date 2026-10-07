@@ -14,7 +14,7 @@ const slides = [
     tag: "Mining & Industrial Energy",
   },
   {
-    image: images.saltMining,
+    image: images.himalayanPinkSalt,
     eyebrow: "OWN MINING & PROCESSING",
     title: "Quality Salt & Mineral Operations",
     subtitle:
@@ -26,7 +26,7 @@ const slides = [
     eyebrow: "MANUFACTURING & CRUSHING",
     title: "Heavy Stone Dust & Aggregate Supply",
     subtitle:
-      "State-of-the-art stone crushing plant producing precision stone dust for roads, infrastructure, canals and megaprojects.",
+      "State-of-the-art stone crushing plant producing precision stone dust for roads, infrastructure, canals and mega projects.",
     tag: "Infrastructure Aggregate",
   },
   {
@@ -78,42 +78,48 @@ export function HeroSlider() {
         </div>
       ))}
 
-      <div className="shell relative z-10 flex flex-1 items-center py-20 lg:py-28">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 rounded-none border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-soft backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand animate-ping" />
-            {slides[active].eyebrow}
+      {/* Safe slide access */}
+      {(() => {
+        const currentSlide = (slides[active] ?? slides[0])!;
+        return (
+          <div className="shell relative z-10 flex flex-1 items-center py-20 lg:py-28">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 rounded-none border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-soft backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand animate-ping" />
+                {currentSlide.eyebrow}
+              </div>
+
+              <h1 className="mt-5 font-display text-5xl font-extrabold uppercase tracking-tight text-white leading-[0.96] md:text-7xl lg:text-8xl drop-shadow-md">
+                {currentSlide.title}
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl font-normal drop-shadow">
+                {currentSlide.subtitle}
+              </p>
+
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <Button asChild variant="brand" size="xl" className="shadow-lg shadow-brand/25">
+                  <Link to="/contact">
+                    Request a Quote <ArrowUpRight className="ml-1.5 size-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="heroOutline" size="xl">
+                  <Link to="/products">Explore Products & Minerals</Link>
+                </Button>
+                <a
+                  href={`https://wa.me/${companyContact.whatsapp2}?text=Hello%20Abid%20Munir%20Group`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-none border border-red-500/40 bg-red-600/20 px-5 py-3 text-xs font-bold uppercase text-white backdrop-blur-sm transition hover:bg-red-600"
+                >
+                  <MessageCircle className="size-4 text-red-400" />
+                  Direct WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
-
-          <h1 className="mt-5 font-display text-5xl font-extrabold uppercase tracking-tight text-white leading-[0.96] md:text-7xl lg:text-8xl drop-shadow-md">
-            {slides[active].title}
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl font-normal drop-shadow">
-            {slides[active].subtitle}
-          </p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Button asChild variant="brand" size="xl" className="shadow-lg shadow-brand/25">
-              <Link to="/contact">
-                Request a Quote <ArrowUpRight className="ml-1.5 size-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="heroOutline" size="xl">
-              <Link to="/products">Explore Products & Minerals</Link>
-            </Button>
-            <a
-              href={`https://wa.me/${companyContact.whatsapp2}?text=Hello%20Abid%20Munir%20Group`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-none border border-red-500/40 bg-red-600/20 px-5 py-3 text-xs font-bold uppercase text-white backdrop-blur-sm transition hover:bg-red-600"
-            >
-              <MessageCircle className="size-4 text-red-400" />
-              Direct WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
+        );
+      })()}
 
       {/* Slider Indicators and Controls */}
       <div className="relative z-20 border-t border-ink-line bg-ink/60 backdrop-blur-md py-4">

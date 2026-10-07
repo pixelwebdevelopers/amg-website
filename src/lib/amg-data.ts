@@ -1,25 +1,55 @@
 import coal from "@/assets/amg-coal.jpeg";
-import logistics from "@/assets/amg-logistics.jpeg";
+import logistics from "@/assets/Logistics.jpeg";
+import logistics2 from "@/assets/Logistics-2.jpeg";
 import mineralYard from "@/assets/amg-mineral-yard.jpeg";
-import processing from "@/assets/amg-processing.jpeg";
+import processing from "@/assets/processing-value addition-unit.jpeg";
+import processing2 from "@/assets/processing-value addition-unit-2.jpeg";
 import quarry from "@/assets/amg-quarry.jpeg";
 import stoneTransport from "@/assets/amg-stone-transport.jpeg";
-import saltMining from "@/assets/amg-salt-mining.jpg";
+import saltMining from "@/assets/salt.jpeg";
+import himalayanPinkSalt from "@/assets/Himalayan-Pink-Salt.jpeg";
 import stoneCrushing from "@/assets/amg-stone-crushing.jpg";
 import generalSupply from "@/assets/amg-general-supply.jpg";
 import mineralMining from "@/assets/amg-mineral-mining.jpg";
+import silicaSand from "@/assets/silica-sand.jpeg";
+import copper from "@/assets/copper.jpeg";
+import industrialRock from "@/assets/industrial-rock.jpeg";
+import trading from "@/assets/Trading.jpeg";
+import trading2 from "@/assets/Trading-2.jpeg";
+
+import coalVideo from "@/assets/coal-video.mp4";
+import himalayanSaltVideo from "@/assets/himalayan-salt.mp4";
+import industrialRockVideo from "@/assets/induustrial-rock-video.mp4";
 
 export const images = {
   coal,
   logistics,
+  logistics2,
   mineralYard,
   processing,
+  processing2,
   quarry,
   stoneTransport,
   saltMining,
+  himalayanPinkSalt,
   stoneCrushing,
   generalSupply,
   mineralMining,
+  silicaSand,
+  copper,
+  industrialRock,
+  trading,
+  trading2,
+};
+
+export const videos = {
+  coalVideo,
+  himalayanSaltVideo,
+  industrialRockVideo,
+};
+
+export const pdfDocuments = {
+  saltProductProfile: "/amg-salt-product-profile.pdf",
 };
 
 export const companyContact = {
@@ -57,7 +87,7 @@ export const businessActivities = [
     shortText:
       "Our processing operations focus on delivering products that meet required quality and industry standards.",
     text: "Our processing capabilities are focused on preparing and handling products efficiently while maintaining consistency and meeting the requirements of our customers and markets.",
-    image: saltMining,
+    image: processing2,
   },
   {
     number: "03",
@@ -73,7 +103,7 @@ export const businessActivities = [
     shortText:
       "We facilitate reliable trading solutions by connecting products, suppliers and customers across different markets.",
     text: "We facilitate trading opportunities across diverse product categories by connecting reliable sources with customer requirements and developing mutually beneficial business relationships.",
-    image: mineralMining,
+    image: trading,
   },
   {
     number: "05",
@@ -96,7 +126,7 @@ export const coreProducts = [
     image: coal,
     summary: "High quality coal for industrial, commercial and brick kiln operations.",
     detail:
-      "We extract coal from our own coal mining operations and maintaining supply capabilities through reliable sourcing networks. We provide quality coal for industrial and commercial requirements, with a focus on consistency, reliability and customer-specific needs.",
+      "We extract coal from our own coal mining operations and maintain supply capabilities through reliable sourcing networks. We provide quality coal for industrial and commercial requirements, with a focus on consistency, reliability and customer-specific needs.",
     specs: [
       "Direct extraction from owned coal mines",
       "High calorific value & optimal grading",
@@ -109,23 +139,24 @@ export const coreProducts = [
     name: "SALT",
     category: "Mineral Extraction & Processing",
     badge: "Own Salt Mining Operations",
-    image: saltMining,
+    image: himalayanPinkSalt,
     summary: "Pure Himalayan rock salt and industrial grade processed salt.",
     detail:
       "With our own salt mining operations and processing capabilities, we are able to extract, process and supply quality salt products according to customer requirements. From raw salt sourcing to processing and final supply, we focus on quality, consistency and reliable delivery for industrial and commercial needs.",
     specs: [
       "Raw rock salt & fine refined grades",
+      "Himalayan pink crystal lumps & tiles",
       "Industrial, chemical & de-icing grades",
-      "Custom particle sizing & packaging",
-      "Export and domestic bulk fulfillment",
+      "Export & domestic bulk fulfillment",
     ],
+    pdfDownload: "/amg-salt-product-profile.pdf",
   },
   {
     id: "silica-sand",
     name: "SILICA SAND",
     category: "Industrial Minerals",
     badge: "Quality Sourced & Washed",
-    image: mineralYard,
+    image: silicaSand,
     summary: "High silica content sand for glass, casting, filtration and construction.",
     detail:
       "Silica sand supply for industrial, construction and other applicable requirements. Carefully sourced, graded and supplied with dependable chemical purity and consistent mesh sizes.",
@@ -189,7 +220,7 @@ export const coreProducts = [
     name: "COPPER",
     category: "Metals & Smelting",
     badge: "Copper Ore Sourcing",
-    image: quarry,
+    image: copper,
     summary: "Commercial grade copper ore supply for smelting and industrial trading.",
     detail:
       "Copper ore sourcing and supply for commercial and industrial requirements. AMG bridges mining extraction with nationwide trade and smelting buyers.",
@@ -208,7 +239,7 @@ export const generalOrderCategories = [
   {
     id: "construction",
     title: "Construction & Infrastructure Materials",
-    tagline: "Heavy Materials for Megaprojects",
+    tagline: "Heavy Materials for Mega projects",
     text: "Materials required for roads, bridges, canals, pipelines and other infrastructure projects across Pakistan. We handle procurement, quality compliance, and scheduled logistics.",
     items: [
       "Aggregate & Road Base",
@@ -245,7 +276,88 @@ export const generalOrderCategories = [
       "Industrial Chemicals & Additives",
       "Custom Bulk Order Supplies",
     ],
-    image: mineralYard,
+    image: industrialRock,
+  },
+];
+
+export const operationsVideos = [
+  {
+    id: "coal-mining",
+    title: "Coal Mining Operations",
+    subtitle: "Heavy excavation & direct fleet dispatch from owned coal concessions",
+    location: "Khushab Coal Mines",
+    badge: "Own Mine Site",
+    video: coalVideo,
+    poster: coal,
+  },
+  {
+    id: "salt-extraction",
+    title: "Himalayan Pink Salt Extraction",
+    subtitle: "Pure mineral extraction, hand sorting & premium grade processing",
+    location: "Salt Range, Punjab",
+    badge: "Own Salt Mines",
+    video: himalayanSaltVideo,
+    poster: himalayanPinkSalt,
+  },
+  {
+    id: "industrial-rock",
+    title: "Industrial Rock & Crushing",
+    subtitle: "State-of-the-art crushing plant producing stone dust & aggregate",
+    location: "AMG Crushing Plant",
+    badge: "Crushing Facility",
+    video: industrialRockVideo,
+    poster: industrialRock,
+  },
+];
+
+export const facilityGallery = [
+  {
+    title: "Processing & Value Addition Unit",
+    category: "Manufacturing",
+    image: processing,
+    description: "Modern facility for mineral refinement and packaging.",
+  },
+  {
+    title: "Secondary Processing Plant",
+    category: "Processing",
+    image: processing2,
+    description: "High-throughput sorting and mechanical grading line.",
+  },
+  {
+    title: "Himalayan Pink Salt Stocks",
+    category: "Mining",
+    image: himalayanPinkSalt,
+    description: "Natural rock salt blocks and mineral salt reserves.",
+  },
+  {
+    title: "Nationwide Logistics & Fleet",
+    category: "Logistics",
+    image: logistics,
+    description: "Heavy multi-axle transport fleet serving all provinces.",
+  },
+  {
+    title: "Secondary Fleet Hub",
+    category: "Logistics",
+    image: logistics2,
+    description: "Direct haulage from quarry head to end-user factories.",
+  },
+  {
+    title: "Trading & Distribution Yard",
+    category: "Trading",
+    image: trading,
+    description: "Centralized stockpile management and prompt loading.",
+  },
+  {
+    title: "Commercial Trading Center",
+    category: "Trading",
+    image: trading2,
+    description: "Connecting verified sources with commercial off-takers.",
+  },
+  {
+    title: "Industrial Rock Sourcing",
+    category: "Minerals",
+    image: industrialRock,
+    description: "High-grade industrial rock and building materials.",
   },
 ];
 

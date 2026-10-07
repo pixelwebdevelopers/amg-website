@@ -9,10 +9,12 @@ import {
   Repeat,
   Truck,
   ShieldCheck,
+  Download,
 } from "lucide-react";
 import { ContactBand, PageIntro, SectionTitle } from "@/components/page-sections";
+import { OperationsReelsSection } from "@/components/operations-reels";
 import { Button } from "@/components/ui/button";
-import { images, businessActivities } from "@/lib/amg-data";
+import { images, businessActivities, pdfDocuments } from "@/lib/amg-data";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -56,11 +58,27 @@ function ServicesPage() {
       {/* 1. Five Main Business Services Detailed Breakdown */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="shell">
-          <SectionTitle
-            eyebrow="OUR FIVE CONNECTED CAPABILITIES"
-            title="Comprehensive Industrial & Supply Services"
-            text="We work with a flexible approach to meet the specific requirements of our clients and business partners."
-          />
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionTitle
+              eyebrow="OUR FIVE CONNECTED CAPABILITIES"
+              title="Comprehensive Industrial & Supply Services"
+              text="We work with a flexible approach to meet the specific requirements of our clients and business partners."
+            />
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={pdfDocuments.saltProductProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border bg-card px-5 py-3 font-display text-xs font-bold uppercase text-foreground hover:border-brand hover:text-brand transition shadow-sm"
+              >
+                <Download className="size-4 text-brand" />
+                Product Profile (PDF)
+              </a>
+              <Button asChild variant="brand" size="lg">
+                <Link to="/contact">Request Service Consultation</Link>
+              </Button>
+            </div>
+          </div>
 
           <div className="mt-16 space-y-12">
             {businessActivities.map((service, index) => (
@@ -129,7 +147,14 @@ function ServicesPage() {
         </div>
       </section>
 
-      {/* 2. ONE GROUP, DIVERSE CAPABILITIES, RELIABLE SOLUTIONS Banner */}
+      {/* 2. LIVE FIELD OPERATIONS VIDEO REELS */}
+      <OperationsReelsSection
+        title="Execution & Field Performance"
+        eyebrow="LIVE OPERATIONS ACROSS SITES"
+        subtitle="Watch real footage of our manufacturing, processing, and transportation activities across Pakistan."
+      />
+
+      {/* 3. ONE GROUP, DIVERSE CAPABILITIES, RELIABLE SOLUTIONS Banner */}
       <section className="relative isolate overflow-hidden bg-ink py-24 text-ink-foreground border-y border-ink-line">
         <img
           src={images.logistics}

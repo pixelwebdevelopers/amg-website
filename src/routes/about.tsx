@@ -7,10 +7,13 @@ import {
   Compass,
   HeartHandshake,
   MapPin,
+  Download,
+  FileText,
 } from "lucide-react";
 import { ContactBand, PageIntro, SectionTitle } from "@/components/page-sections";
+import { OperationsReelsSection } from "@/components/operations-reels";
 import { Button } from "@/components/ui/button";
-import { images, companyContact, amgStats } from "@/lib/amg-data";
+import { images, companyContact, amgStats, facilityGallery, pdfDocuments } from "@/lib/amg-data";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -109,6 +112,18 @@ function AboutPage() {
               and a genuine effort to honour the legacy of Malik Abid Munir Awan — by transforming
               his principles into a continuing vision for the generations ahead.
             </p>
+
+            <div className="pt-2 flex flex-wrap gap-3">
+              <a
+                href={pdfDocuments.saltProductProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border bg-card px-5 py-3 font-display text-xs font-bold uppercase text-foreground hover:border-brand hover:text-brand transition shadow-sm"
+              >
+                <Download className="size-4 text-brand" />
+                Download Corporate & Salt Profile (PDF)
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -124,8 +139,8 @@ function AboutPage() {
             <p className="text-base text-muted-foreground leading-relaxed">
               At Abid Munir Group, our operations bridge natural resource extraction with nationwide
               commercial markets. From owned mines in the mineral-rich regions of Pakistan to our
-              modern stone crushing facilities and trading networks, we ensure consistency at every
-              step.
+              modern stone crushing facilities, processing units and trading networks, we ensure
+              consistency at every step.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2 pt-2">
@@ -162,20 +177,66 @@ function AboutPage() {
           <div className="relative">
             <div className="overflow-hidden border border-border shadow-2xl">
               <img
-                src={images.mineralMining}
-                alt="AMG Pakistani Engineers and Mining Facility"
+                src={images.processing}
+                alt="AMG Pakistani Processing & Value Addition Units"
                 className="aspect-[4/3] w-full object-cover"
               />
             </div>
             <div className="mt-4 bg-ink p-4 text-white text-xs flex items-center justify-between">
-              <span>Pakistani Mining & Supply Infrastructure</span>
+              <span>AMG Processing & Logistics Infrastructure</span>
               <span className="text-brand font-semibold">Khushab, Pakistan</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Core Values Grid */}
+      {/* 3. NEW: AMG FACILITIES & SITES PHOTO GALLERY */}
+      <section className="py-20 lg:py-28 bg-background border-b border-border">
+        <div className="shell">
+          <SectionTitle
+            eyebrow="INFRASTRUCTURE & ASSETS"
+            title="Our Sites, Units & Fleet"
+            text="Explore the manufacturing, processing, trading, and logistics infrastructure powering Abid Munir Group."
+          />
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {facilityGallery.map((item, idx) => (
+              <div
+                key={idx}
+                className="group border border-border bg-card overflow-hidden transition-all duration-300 hover:border-brand hover:shadow-xl"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-ink">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-2 left-2 bg-ink/85 text-[10px] uppercase font-bold tracking-wider text-brand-soft px-2 py-0.5 border border-ink-line">
+                    {item.category}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-display text-base font-bold uppercase text-foreground group-hover:text-brand transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Live On-Site Video Reels */}
+      <OperationsReelsSection
+        title="Watch Operations at Our Concessions"
+        eyebrow="ON-SITE VIDEO REELS"
+        subtitle="Live video clips showcasing coal mining, rock salt harvesting, and aggregate crushing plants."
+      />
+
+      {/* 5. Core Values Grid */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="shell">
           <SectionTitle
@@ -204,7 +265,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 4. Commitment To Lasting Relationships */}
+      {/* 6. Commitment To Lasting Relationships */}
       <section className="bg-ink text-ink-foreground py-20 lg:py-28 border-t border-ink-line">
         <div className="shell grid gap-12 lg:grid-cols-2 items-center">
           <div>
@@ -251,8 +312,8 @@ function AboutPage() {
                 <div>
                   <strong className="block text-white">Operational Facilities:</strong>
                   <span>
-                    Own Coal Mines, Salt Mining Operations, Stone Crushing Plant & Mineral Yards in
-                    Khushab & surrounding industrial zones.
+                    Own Coal Mines, Salt Mining Operations, Stone Crushing Plant, Processing &
+                    Trading Yards in Khushab & surrounding industrial zones.
                   </span>
                 </div>
               </div>

@@ -7,11 +7,20 @@ import {
   Layers,
   FileSpreadsheet,
   Phone,
+  Download,
+  FileText,
+  Sparkles,
 } from "lucide-react";
-import { useState } from "react";
 import { ContactBand, PageIntro, SectionTitle } from "@/components/page-sections";
+import { OperationsReelsSection } from "@/components/operations-reels";
 import { Button } from "@/components/ui/button";
-import { coreProducts, generalOrderCategories, images, companyContact } from "@/lib/amg-data";
+import {
+  coreProducts,
+  generalOrderCategories,
+  images,
+  companyContact,
+  pdfDocuments,
+} from "@/lib/amg-data";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -38,16 +47,14 @@ export const Route = createFileRoute("/products")({
   component: ProductsPage,
 });
 
-function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState<"all" | "core" | "general">("all");
-
+export function ProductsPage() {
   return (
     <>
       <PageIntro
         eyebrow="OUR PRODUCTS"
         title="Sourced with care. Supplied with confidence."
         description="Abid Munir Group provides reliable sourcing and supply solutions across a diverse range of products and materials. Our core strength lies in industrial and mineral products, while our General Order Supply capability enables us to facilitate a broader range of requirements according to customer and project needs."
-        image={images.mineralYard}
+        image={images.mineralMining}
       />
 
       {/* 1. Core Mineral Products Grid */}
@@ -59,9 +66,20 @@ function ProductsPage() {
               title="Industrial & Mineral Portfolio"
               text="Our core strength includes the extraction, processing, and dependable supply of high-demand industrial minerals."
             />
-            <Button asChild variant="brand" size="lg">
-              <Link to="/contact">Request Product Quotation</Link>
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={pdfDocuments.saltProductProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border bg-card px-5 py-3 font-display text-xs font-bold uppercase text-foreground hover:border-brand hover:text-brand transition shadow-sm"
+              >
+                <Download className="size-4 text-brand" />
+                Download Salt Profile (PDF)
+              </a>
+              <Button asChild variant="brand" size="lg">
+                <Link to="/contact">Request Product Quotation</Link>
+              </Button>
+            </div>
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -108,7 +126,17 @@ function ProductsPage() {
                   </div>
                 </div>
 
-                <div className="p-7 pt-0">
+                <div className="p-7 pt-0 space-y-2">
+                  {product.id === "salt" && (
+                    <a
+                      href={pdfDocuments.saltProductProfile}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-full items-center justify-center gap-2 bg-brand/10 border border-brand/30 hover:bg-brand hover:text-white text-brand px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition mb-2"
+                    >
+                      <Download className="size-4" /> Download Salt Profile PDF
+                    </a>
+                  )}
                   <Button asChild variant="outline" size="default" className="w-full">
                     <Link to="/contact">
                       Inquire About {product.name} <ArrowUpRight className="ml-1 size-4" />
@@ -121,7 +149,94 @@ function ProductsPage() {
         </div>
       </section>
 
-      {/* 2. GENERAL ORDER SUPPLY — BEYOND OUR CORE PRODUCTS */}
+      {/* 2. FEATURED SPOTLIGHT: HIMALAYAN PINK SALT SPECIFICATIONS & PDF DOWNLOAD */}
+      <section className="bg-muted py-20 lg:py-24 border-y border-border">
+        <div className="shell">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-none bg-brand/10 border border-brand/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand">
+                <Sparkles className="size-3.5" />
+                Featured Mineral Line
+              </div>
+              <h2 className="mt-4 font-display text-4xl font-extrabold uppercase md:text-5xl text-foreground">
+                Himalayan Pink Salt & Industrial Grades
+              </h2>
+              <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                Directly excavated from the world-renowned Salt Range formations in Punjab, Pakistan.
+                We supply unprocessed raw rock salt boulders, graded pink crystal chunks, food grade
+                table salt, de-icing rock salt, and animal lick salt blocks for international and
+                domestic buyers.
+              </p>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                <div className="bg-card border border-border p-4">
+                  <span className="eyebrow text-brand">PURITY & GRADING</span>
+                  <p className="mt-1 font-display text-lg font-bold uppercase text-foreground">
+                    98%+ NaCl Content
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Naturally rich in 84+ essential trace minerals and iron oxide.
+                  </p>
+                </div>
+
+                <div className="bg-card border border-border p-4">
+                  <span className="eyebrow text-brand">EXPORT PACKAGING</span>
+                  <p className="mt-1 font-display text-lg font-bold uppercase text-foreground">
+                    Custom Bulk & Bags
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    25kg / 50kg PP bags, 1-ton jumbo bags, or loose bulk containers.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={pdfDocuments.saltProductProfile}
+                  download="AMG-Salt-Product-Profile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wider transition shadow-lg shadow-brand/25"
+                >
+                  <Download className="size-4" />
+                  Download Complete Salt Profile (PDF)
+                </a>
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/contact">Request Export Spec Sheet</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="overflow-hidden border border-border bg-ink shadow-2xl">
+                <img
+                  src={images.himalayanPinkSalt}
+                  alt="AMG Himalayan Pink Salt Lumps"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-4 hidden sm:flex items-center gap-3 bg-ink p-4 border border-ink-line text-white shadow-xl max-w-xs">
+                <FileText className="size-8 text-brand shrink-0" />
+                <div className="text-xs">
+                  <strong className="block text-white uppercase font-display">
+                    Official Product Catalog
+                  </strong>
+                  <span className="text-ink-muted">Includes lab analysis & specifications</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Real-Time Operations Reels (Coal, Salt, Rock Crushing Videos) */}
+      <OperationsReelsSection
+        title="Watch Extraction & Processing in Action"
+        eyebrow="ON-SITE OPERATIONS VIDEO REELS"
+        subtitle="Real footage from our owned coal extraction mines, Himalayan pink salt quarries, and high-capacity stone crushing units in Pakistan."
+      />
+
+      {/* 4. GENERAL ORDER SUPPLY — BEYOND OUR CORE PRODUCTS */}
       <section className="bg-ink text-ink-foreground py-20 lg:py-28 border-y border-ink-line">
         <div className="shell">
           <SectionTitle
@@ -180,7 +295,7 @@ function ProductsPage() {
         </div>
       </section>
 
-      {/* 3. TELL US WHAT YOU NEED Callout Section */}
+      {/* 5. TELL US WHAT YOU NEED Callout Section */}
       <section className="py-20 lg:py-24 bg-muted border-b border-border">
         <div className="shell grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
           <div>

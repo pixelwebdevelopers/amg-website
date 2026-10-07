@@ -106,14 +106,13 @@ export function SiteHeader() {
             </a>
             <span className="text-ink-line">|</span>
             <a
-              href={companyContact.socials.instagram}
+              href="/amg-salt-product-profile.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-brand transition-colors flex items-center gap-1"
-              title="Instagram"
+              className="hover:text-white transition-colors flex items-center gap-1 text-brand-soft font-semibold"
+              title="Download Himalayan Salt Product Profile (PDF)"
             >
-              <Instagram className="size-3.5" />
-              <span>Instagram</span>
+              <span>Salt Profile (PDF)</span>
             </a>
           </div>
         </div>
@@ -253,6 +252,15 @@ export function SiteHeader() {
                       Request a Quote <ArrowUpRight className="ml-1 size-4" />
                     </Link>
                   </Button>
+
+                  <a
+                    href="/amg-salt-product-profile.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-none border border-brand/50 bg-brand/15 hover:bg-brand text-white py-3 px-4 font-display font-bold uppercase text-xs transition shadow-sm"
+                  >
+                    <span>Download Salt Profile (PDF)</span>
+                  </a>
 
                   <a
                     href={companyContact.socials.whatsapp}
@@ -412,6 +420,14 @@ export function SiteFooter() {
               >
                 General Order Supply
               </Link>
+              <a
+                href="/amg-salt-product-profile.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-fit text-brand-soft transition-colors hover:text-white font-medium"
+              >
+                Salt Product Profile (PDF) ↗
+              </a>
             </div>
           </div>
 
